@@ -10,6 +10,18 @@ services:
       - PORT=3001
     depends_on:
       - mongo
+
+  task-service:
+    build:
+      context: ./task-service
+      dockerfile: Dockerfile
+    ports:
+      - 3002:3002
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/user
+      - PORT=3002
+    depends_on:
+      - mongo
   mongo:
     image: mongo:latest
     ports:

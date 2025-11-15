@@ -1,7 +1,7 @@
-FROM oven/bun:latest
+FROM node:latest
 WORKDIR /app
-COPY package*.json bun.lock ./
-RUN bun install
+COPY package*.json ./
+RUN npm install
 COPY . .
 EXPOSE 3002
-CMD ["bun", "run", "index.ts"]
+CMD ["node", "index.js"]
