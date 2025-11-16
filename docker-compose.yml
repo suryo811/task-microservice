@@ -24,7 +24,7 @@ services:
       mongo:
         condition: service_started
       rabbitmq:
-        condition: service_healthy
+        condition: service_started
   mongo:
     image: mongo:latest
     ports:
