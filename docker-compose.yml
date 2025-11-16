@@ -25,6 +25,15 @@ services:
         condition: service_started
       rabbitmq:
         condition: service_started
+
+  notification-service:
+    build:
+      context: ./notification-service
+      dockerfile: Dockerfile
+    ports:
+      - 3003:3003
+    depends_on:
+      - rabbitmq
   mongo:
     image: mongo:latest
     ports:
